@@ -18,23 +18,23 @@ githubWebhookHandler.on('issue_comment', (event) => {
 
   //judge if the comment is from pull requests
   const pullRequest = payload['issue']['pull_request'];
-  if(!pullRequest) {
+  if (!pullRequest) {
     return;
   }
 
   const commentBody = payload['comment']['body'].toLowerCase();
 
-  if(commentBody.match('@seanbot') && commentBody.match('dump')) {
+  if (commentBody.match('@seanbot') && commentBody.match('dump')) {
 
     function getMasksFromCommentBody() {
       let MAJOR = 0;
       let MINOR = 0;
       let PATCH = 0;
-      if(commentBody.match('major')){
+      if (commentBody.match('major')) {
         MAJOR = 1;
-      } else if (commentBody.match('minor')){
+      } else if (commentBody.match('minor')) {
         MINOR = 1;
-      } else if (commentBody.match('patch')){
+      } else if (commentBody.match('patch')) {
         PATCH = 1;
       } else {
         return;
@@ -49,17 +49,17 @@ githubWebhookHandler.on('issue_comment', (event) => {
         user: list[4],
         repo: list[5],
         number: list[7]
-      }
+      };
     }
 
     const masks = getMasksFromCommentBody();
-    if(!masks) {
+    if (!masks) {
       return;
     }
 
     github.pullRequests.get(getMsgFormPrUrl(), (err, res) => {
-      if(err) {
-        console.log(err.message);
+      if (err) {
+        console.error(err && err.stack);
         return;
       }
       const data = {
@@ -67,11 +67,11 @@ githubWebhookHandler.on('issue_comment', (event) => {
         repo: res['head']['repo']['name'],
         path: 'package.json',
         ref: res['head']['ref']
-      }
+      };
 
       github.repos.getContent(data, (err, res) => {
-        if(err) {
-          console.log(err.message);
+        if (err) {
+          console.error(err && err.stack);
           return;
         }
 
@@ -89,19 +89,22 @@ githubWebhookHandler.on('issue_comment', (event) => {
           content: new Buffer(JSON.stringify(_package, null, '  ')).toString('base64'),
           sha: res.sha
         }, (err, res) => {
-          if(err) {
-            console.log(err.message);
+          if (err) {
+            console.log(err && err.stack);
             return;
           }
           console.log(res);
-        })
-      })
-    })
+        });
+      });
+    });
   }
 });
 
 
-app.use(koaBody({formidable:{uploadDir: __dirname}}));
+app.use(koaBody({
+  formidable: {
+    uploadDir: __dirname}
+  }
+));
 app.use(githubWebhookHandler.middleware());
-
 app.listen((process.env.PORT || 4444));

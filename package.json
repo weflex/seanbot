@@ -14,6 +14,6 @@
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
     "koa-github-webhook-handler": "0.0.2",
-    "semver-increment": "github:weflex/semver-increment"
+    "semver-increment": "^0.1.0"
   }
 }

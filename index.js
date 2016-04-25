@@ -24,7 +24,7 @@ githubWebhookHandler.on('issue_comment', (event) => {
 
   const commentBody = payload['comment']['body'].toLowerCase();
 
-  if (commentBody.match('@seanbot') && commentBody.match('dump')) {
+  if (commentBody.match('@seanbot') && commentBody.match('bump')) {
 
     function getMasksFromCommentBody() {
       let MAJOR = 0;
@@ -85,7 +85,7 @@ githubWebhookHandler.on('issue_comment', (event) => {
           repo: data['repo'],
           path: 'package.json',
           branch: data['ref'],
-          message: 'Dump version to ' + _package.version,
+          message: 'bump version to ' + _package.version,
           content: new Buffer(JSON.stringify(_package, null, '  ')).toString('base64'),
           sha: res.sha
         }, (err, res) => {

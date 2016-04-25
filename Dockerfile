@@ -1,4 +1,4 @@
-FROM        node:5.11.0
+FROM        node:5.6.0
 RUN         mkdir -p /root/app
 WORKDIR     /root/app
 COPY        package.json ./

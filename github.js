@@ -17,4 +17,4 @@ github.authenticate({
   token: process.env.SEANBOT_GITHUB_TOKEN
 });
 
-module.exports = github
+module.exports = github;

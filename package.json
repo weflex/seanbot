@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tap test/*.js",
     "start": "node index.js"
   },
   "keywords": [],
@@ -16,5 +16,8 @@
     "koa-body": "^1.4.0",
     "koa-github-webhook-handler": "0.0.2",
     "semver-increment": "^0.1.0"
+  },
+  "devDependencies": {
+    "tap": "^5.7.1"
   }
 }

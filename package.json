@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "es6-promisify": "^4.0.0",
     "github": "^0.2.4",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
@@ -19,5 +20,9 @@
   },
   "devDependencies": {
     "tap": "^5.7.1"
+    "babel-eslint": "^6.0.3",
+    "eslint": "^2.8.0",
+    "eslint-config-weflex": "^1.0.3",
+    "eslint-plugin-react": "^5.0.1"
   }
 }

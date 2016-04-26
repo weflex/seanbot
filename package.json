@@ -10,17 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.3.5",
     "github": "^0.2.4",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
     "koa-github-webhook-handler": "0.0.2",
     "semver-increment": "^0.1.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^6.0.3",
-    "eslint": "^2.8.0",
-    "eslint-config-weflex": "^1.0.3",
-    "eslint-plugin-react": "^5.0.1"
   }
 }

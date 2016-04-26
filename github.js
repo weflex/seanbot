@@ -1,3 +1,5 @@
+'use strict'
+
 const GitHubApi = require('github');
 
 const github = new GitHubApi({
@@ -6,13 +8,13 @@ const github = new GitHubApi({
   protocol: 'https',
   host: 'api.github.com',
   headers: {
-    'user-agent': 'seanbot',
-  },
+    'user-agent': 'seanbot'
+  }
 });
 
 github.authenticate({
   type: 'oauth',
-  token: process.env.SEANBOT_GITHUB_TOKEN,
+  token: process.env.SEANBOT_GITHUB_TOKEN
 });
 
 module.exports = github;

@@ -1,23 +1,48 @@
 'use strict';
 
-const tap = require('tap');
+const test = require('tape');
 const getMasksFromCommentBody = require('../lib/utils').getMasksFromCommentBody;
 const getPrMsgFormUrl = require('../lib/utils').getPrMsgFormUrl;
 const getBranchMsgFormHtmlUrl = require('../lib/utils').getBranchMsgFormHtmlUrl;
 
-tap.equal(getMasksFromCommentBody('@seanbot bump'), null);
-tap.same(getMasksFromCommentBody('@seanbot bump major'), [1, 0, 0]);
-tap.same(getMasksFromCommentBody('@seanbot bump minor'), [0, 1, 0]);
-tap.same(getMasksFromCommentBody('@seanbot bump patch'), [0, 0, 1]);
-
-tap.same(getPrMsgFormUrl('https://api.github.com/repos/weflex/seanbot/pulls/1'), {
-  user: 'weflex',
-  repo: 'seanbot',
-  number: '1',
+test('getMasksFromCommentBody function', function(t) {
+  t.equal(getMasksFromCommentBody('@seanbot bump'), null);
+  t.deepEqual(getMasksFromCommentBody('@seanbot bump major'), [1, 0, 0]);
+  t.deepEqual(getMasksFromCommentBody('@seanbot bump minor'), [0, 1, 0]);
+  t.deepEqual(getMasksFromCommentBody('@seanbot bump patch'), [0, 0, 1]);
+  t.end();
 });
 
-tap.same(getBranchMsgFormHtmlUrl('https://github.com/weflex/seanbot/blob/master/package.json'), {
-  user: 'weflex',
-  repo: 'seanbot',
-  branch: 'master',
+test('utils.getPrMsgFormUrl', function(t) {
+  function testit(url, expect) {
+    t.deepEqual(getPrMsgFormUrl(url), expect);
+  }
+  testit('https://api.github.com/repos/weflex/seanbot/pulls/1', {
+    user: 'weflex',
+    repo: 'seanbot',
+    number: '1',
+  });
+  testit('https://api.github.com/repos/weflex/studio-desktop/pulls/2', {
+    user: 'weflex',
+    repo: 'studio-desktop',
+    number: '2',
+  });
+  t.end();
+});
+
+test('utils.getBranchMsgFormHtmlUrl', function(t) {
+  function testit(url, expect) {
+    t.deepEqual(getBranchMsgFormHtmlUrl(url), expect);
+  }
+  testit('https://github.com/weflex/seanbot/blob/master/package.json', {
+    user: 'weflex',
+    repo: 'seanbot',
+    branch: 'master',
+  });
+  testit('https://github.com/weflex/studio-desktop/blob/fix/gh-123/package.json', {
+    user: 'weflex',
+    repo: 'studio-desktop',
+    branch: 'fix/gh-123',
+  });
+  t.end();
 });

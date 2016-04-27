@@ -6,4 +6,4 @@ RUN         npm install --production
 ADD         ./ ./
 EXPOSE      4444
 ENTRYPOINT  ["node"]
-CMD         ["index.js"]
+CMD         ["app.js"]

@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "tap test/*.js",
+    "test": "tape test/*.js",
     "start": "node app.js"
   },
   "keywords": [],
@@ -19,10 +19,10 @@
     "semver-increment": "^0.1.0"
   },
   "devDependencies": {
-    "tap": "^5.7.1",
     "babel-eslint": "^6.0.3",
     "eslint": "^2.8.0",
     "eslint-config-weflex": "^1.0.3",
-    "eslint-plugin-react": "^5.0.1"
+    "eslint-plugin-react": "^5.0.1",
+    "tape": "^4.5.1"
   }
 }

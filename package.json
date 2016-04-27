@@ -2,10 +2,10 @@
   "name": "seanbot",
   "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "tap test/*.js",
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

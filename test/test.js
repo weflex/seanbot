@@ -1,9 +1,9 @@
 'use strict';
 
 const tap = require('tap');
-const getMasksFromCommentBody = require('../lib/function').getMasksFromCommentBody;
-const getPrMsgFormUrl = require('../lib/function').getPrMsgFormUrl;
-const getBranchMsgFormHtmlUrl = require('../lib/function').getBranchMsgFormHtmlUrl;
+const getMasksFromCommentBody = require('../lib/utils').getMasksFromCommentBody;
+const getPrMsgFormUrl = require('../lib/utils').getPrMsgFormUrl;
+const getBranchMsgFormHtmlUrl = require('../lib/utils').getBranchMsgFormHtmlUrl;
 
 tap.equal(getMasksFromCommentBody('@seanbot bump'), null);
 tap.same(getMasksFromCommentBody('@seanbot bump major'), [1, 0, 0]);

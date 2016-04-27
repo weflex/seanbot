@@ -3,7 +3,7 @@
 const koa = require('koa');
 const koaBody = require('koa-body');
 const GithubWebhookHandler = require('koa-github-webhook-handler');
-const issueCommentHandler = require('./lib/issueCommentHandler');
+const issueCommentHandler = require('./lib/issue-comment-handler');
 const app = koa();
 
 const githubWebhookHandler = new GithubWebhookHandler({

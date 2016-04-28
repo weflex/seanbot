@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "es6-promisify": "^4.0.0",
+    "fuzzy-matching": "^0.4.3",
     "github": "^0.2.4",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",

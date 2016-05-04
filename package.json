@@ -1,6 +1,6 @@
 {
   "name": "seanbot",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
     "koa-github-webhook-handler": "0.0.2",
+    "leven": "^2.0.0",
     "semver-increment": "^0.1.0"
   },
   "devDependencies": {

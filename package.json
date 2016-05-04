@@ -1,6 +1,6 @@
 {
   "name": "seanbot",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -12,12 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "es6-promisify": "^4.0.0",
-    "github": "^0.2.4",
+    "gh-got": "^4.0.0",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
     "koa-github-webhook-handler": "0.0.2",
     "leven": "^2.0.0",
-    "semver-increment": "^0.1.0"
+    "semver-increment": "^0.1.0",
+    "shelljs": "^0.7.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.3",

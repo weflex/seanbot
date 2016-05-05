@@ -15,7 +15,7 @@
     "gh-got": "^4.0.0",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
-    "koa-github-webhook-handler": "0.0.2",
+    "koa-github-webhook-handler": "github:zhangweijie-cn/koa-github-webhook-handler#removeVerify",
     "leven": "^2.0.0",
     "semver-increment": "^0.1.0",
     "shelljs": "^0.7.0"

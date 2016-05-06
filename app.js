@@ -1,7 +1,7 @@
 'use strict';
 
 const koa = require('koa');
-const koaBody = require('koa-body');
+const bodyParser = require('koa-bodyparser');
 const GithubWebhookHandler = require('koa-github-webhook-handler');
 const issueCommentHandler = require('./lib/issue-comment-handler');
 const app = koa();
@@ -13,9 +13,10 @@ const githubWebhookHandler = new GithubWebhookHandler({
 
 githubWebhookHandler.on('issue_comment', issueCommentHandler);
 
-app.use(koaBody({
-  formidable: {
-    uploadDir: __dirname,
+app.use(bodyParser({
+  verify: (req, str) => {
+    req.rawBody = str;
+    console.log(str);
   },
 }));
 
